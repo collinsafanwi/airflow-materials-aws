@@ -36,6 +36,7 @@ curl -sSL https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 
 
 # Check the version
 helm version --short
+################################# EOV
 
 # Download the stable repo
 helm repo add stable https://kubernetes-charts.storage.googleapis.com/
@@ -46,20 +47,27 @@ git config --global user.name "airflow-workstation"
 
 ################################# EOV
 
+################################# EOV
+#if there is a sandbox environment, i will activate with this code
+source .sandbox/bin/activate
+################################# EOV
+
 # upgrade aws cli
 pip install --upgrade awscli && hash -r
 
 # install some utilities
 sudo yum -y install jq gettext bash-completion moreutils
 
-# go the settings, AWS settings and turn off temporary credentials
+# go the settings, AWS settings and turn off temporary credentials(cloud 9 specific)
 
 # remove temporary credentials
 rm -vf ${HOME}/.aws/credentials
-
-# configure aws env variables
+################################# EOV
+# configure aws
 # The following get-caller-identity example displays information about the IAM identity used to authenticate the request
 aws configure
+################################# EOV
+# configure aws env variables and add the ID's like: export ACCOUNT_ID=3323446464646 / export AWS_REGION=us-east-2
 aws sts get-caller-identity
 export ACCOUNT_ID=
 export AWS_REGION=
