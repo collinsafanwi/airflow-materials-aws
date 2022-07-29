@@ -82,6 +82,8 @@ aws configure get default.region
 
 # Press return for all questions by keeping the defaults and empty passphrase.
 ssh-keygen -t rsa
+#cat key from aws and save in the githum settings environment
+cat /home/ec2-user/.ssh/id_rsa.pub
 
 ################################# EOV
 
